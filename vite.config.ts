@@ -68,7 +68,7 @@ export default defineConfig(async () => ({
   root: path.resolve(__dirname, "client"), // your app entry point
   build: {
     outDir: path.resolve(__dirname, "docs"), // always build to docs/
-    emptyOutDir: true,
+    emptyOutDir: false,
   },
   server: {
     fs: {
