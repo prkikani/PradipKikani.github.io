@@ -121,7 +121,7 @@ import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 var isGH = process.env.GITHUB_PAGES === "true";
 var vite_config_default = defineConfig(async () => ({
-  base: isGH ? "/PradipKikani/" : "/",
+  base: "/",
   // Required for GitHub Pages
   plugins: [
     react(),
@@ -144,7 +144,7 @@ var vite_config_default = defineConfig(async () => ({
   build: {
     outDir: path.resolve(__dirname, "docs"),
     // always build to docs/
-    emptyOutDir: true
+    emptyOutDir: false
   },
   server: {
     fs: {
