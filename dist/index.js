@@ -119,7 +119,10 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
-var vite_config_default = defineConfig({
+var isGH = process.env.GITHUB_PAGES === "true";
+var vite_config_default = defineConfig(async () => ({
+  base: isGH ? "/PradipKikani/" : "/",
+  // 👈 Needed for GitHub Pages
   plugins: [
     react(),
     runtimeErrorOverlay(),
@@ -138,7 +141,7 @@ var vite_config_default = defineConfig({
   },
   root: path.resolve(import.meta.dirname, "client"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: isGH ? path.resolve(import.meta.dirname, "docs") : path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true
   },
   server: {
@@ -147,7 +150,7 @@ var vite_config_default = defineConfig({
       deny: ["**/.*"]
     }
   }
-});
+}));
 
 // server/vite.ts
 import { nanoid } from "nanoid";
