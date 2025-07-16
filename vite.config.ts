@@ -45,7 +45,7 @@ import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 const isGH = process.env.GITHUB_PAGES === "true";
 
 export default defineConfig(async () => ({
-  base: "/PradipKikani.github.io/" : "/", // Required for GitHub Pages
+  base: "/", // Required for GitHub Pages
   plugins: [
     react(),
     runtimeErrorOverlay(),
